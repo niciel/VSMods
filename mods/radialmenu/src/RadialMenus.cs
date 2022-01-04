@@ -2,9 +2,6 @@
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 
-
-using Vintagestory.API.Client;
-
 namespace SimpleRM
 {
     public abstract class RadialMenuGui : GuiDialog
@@ -69,7 +66,7 @@ namespace SimpleRM
 
         public void OnRenderFrame(float deltaTime, EnumRenderStage stage)
         {
-            if (stage != 10)
+            if (stage != EnumRenderStage.Ortho)
                 return;
             this.menu.OnRender(deltaTime);
         }
@@ -79,11 +76,11 @@ namespace SimpleRM
             if (this.menu.Opened)
                 return false;
             // ISSUE: method pointer
-            this.capi.Event.MouseMove += new MouseEventDelegate((object)this, __methodptr(Event_MouseMove));
+            this.capi.Event.MouseMove += Event_MouseMove;
             // ISSUE: method pointer
-            this.capi.Event.MouseDown += new MouseEventDelegate((object)this, __methodptr(Event_MouseDown));
+            this.capi.Event.MouseDown += Event_MouseDown;
             // ISSUE: method pointer
-            this.capi.Event.KeyDown += new KeyEventDelegate((object)this, __methodptr(Event_KeyDown));
+            this.capi.Event.KeyDown += Event_KeyDown;
             this.capi.Event.RegisterRenderer((IRenderer)this, (EnumRenderStage)10, (string)null);
             this.menu.Open();
             return true;
@@ -98,12 +95,12 @@ namespace SimpleRM
         protected void RemoveEvents()
         {
             // ISSUE: method pointer
-            this.capi.Event.MouseMove -= new MouseEventDelegate((object)this, __methodptr(Event_MouseMove));
+            this.capi.Event.MouseMove -= Event_MouseMove;
             // ISSUE: method pointer
-            this.capi.Event.MouseDown -= new MouseEventDelegate((object)this, __methodptr(Event_MouseDown));
+            this.capi.Event.MouseDown -= Event_MouseDown;
             // ISSUE: method pointer
-            this.capi.Event.KeyDown += new KeyEventDelegate((object)this, __methodptr(Event_KeyDown));
-            this.capi.Event.UnregisterRenderer(this, 10);
+            this.capi.Event.KeyDown += Event_KeyDown;
+            this.capi.Event.UnregisterRenderer(this, EnumRenderStage.Ortho);
         }
 
         private void Event_KeyDown(KeyEvent e)
@@ -123,7 +120,7 @@ namespace SimpleRM
             }
             else
             {
-                if (button == (int)byte.MaxValue)
+                if (button == EnumMouseButton.None)
                     return;
                 this.Close(false);
             }

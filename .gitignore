@@ -18,6 +18,7 @@ modtools.command
 packages.config
 README.md
 VSModLauncher.csproj.user
+modinfo.json
 
 #folders
 releases/
@@ -26,3 +27,4 @@ Properties/
 packages/
 obj/
 mods-dll/
+assets/

@@ -1,5 +1,9 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using Vintagestory.API.Client;
+using SimpleRM.utils;
+using Vintagestory.API.MathTools;
+using Cairo;
 namespace SimpleRM
 {
 
@@ -269,7 +273,7 @@ namespace SimpleRM
                 {
                     string str = strArray[index];
                     TextExtents textExtents = this.font.GetTextExtents(str);
-                    float xadvance = (float)((TextExtents)ref textExtents).XAdvance;
+                    float xadvance = (float) textExtents.XAdvance;
                     context.MoveTo(((double)textureSize - (double)xadvance) / 2.0, (double)num2 + (double)index * (double)num1);
                     context.ShowText(str);
                 }

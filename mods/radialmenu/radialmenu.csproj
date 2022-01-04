@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="cairo-sharp">
+      <HintPath>G:\Vintagestory\Lib\cairo-sharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -65,10 +69,13 @@
     <Content Include="modinfo.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\RadialElementPosition.cs" />
     <Compile Include="src\InnerCircleRenderer.cs" />
     <Compile Include="src\IRadialElement.cs" />
     <Compile Include="src\RadialMenuRenderer.cs" />
     <Compile Include="src\RadialMenus.cs" />
+    <Compile Include="src\utils\ResoultionAddon.cs" />
+    <Compile Include="src\utils\Vectors.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\" />
