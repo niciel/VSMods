@@ -9,8 +9,6 @@ namespace emotemenu
         [JsonProperty]
         public bool show_middle_circle = true;
         [JsonProperty]
-        public int button_hold_milis = 250;
-        [JsonProperty]
         public string button_mouse_binding = "";
     }
 }

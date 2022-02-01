@@ -5,25 +5,25 @@ using Vintagestory.API.Common;
 
 namespace emotemenu
 {
-    public class MenuItem
+    public class RadialItemMenu
     {
         private readonly string _ID;
         private RadialMenu _menu;
-        public Predicate<MenuItem> RiseOnOpen;
+        public Predicate<RadialItemMenu> RiseOnOpen;
         private bool _MouseBinding;
         private int _BindID;
 
-        public MenuItem(string iD, RadialMenu menu, GlKeys key)
+        public RadialItemMenu(string iD, RadialMenu menu, GlKeys key)
           : this(iD, menu, false, (int)key)
         {
         }
 
-        public MenuItem(string iD, RadialMenu menu, EnumMouseButton key)
+        public RadialItemMenu(string iD, RadialMenu menu, EnumMouseButton key)
           : this(iD, menu, true, (int)key)
         {
         }
 
-        public MenuItem(string iD, RadialMenu menu, bool mouseBinding, int bindID)
+        public RadialItemMenu(string iD, RadialMenu menu, bool mouseBinding, int bindID)
         {
             this._ID = iD;
             this._menu = menu;
