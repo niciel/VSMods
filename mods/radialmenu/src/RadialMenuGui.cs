@@ -4,6 +4,11 @@ using Vintagestory.API.Common;
 
 namespace SimpleRM
 {
+
+    /// <summary>
+    /// is it working ?, at this point should't be used
+    /// </summary>
+    [Obsolete]
     public abstract class RadialMenuGui : GuiDialog
     {
         private RadialMenu menu;
@@ -75,11 +80,8 @@ namespace SimpleRM
         {
             if (this.menu.Opened)
                 return false;
-            // ISSUE: method pointer
             this.capi.Event.MouseMove += Event_MouseMove;
-            // ISSUE: method pointer
             this.capi.Event.MouseDown += Event_MouseDown;
-            // ISSUE: method pointer
             this.capi.Event.KeyDown += Event_KeyDown;
             this.capi.Event.RegisterRenderer((IRenderer)this, (EnumRenderStage)10, (string)null);
             this.menu.Open();
@@ -94,11 +96,8 @@ namespace SimpleRM
 
         protected void RemoveEvents()
         {
-            // ISSUE: method pointer
             this.capi.Event.MouseMove -= Event_MouseMove;
-            // ISSUE: method pointer
             this.capi.Event.MouseDown -= Event_MouseDown;
-            // ISSUE: method pointer
             this.capi.Event.KeyDown += Event_KeyDown;
             this.capi.Event.UnregisterRenderer(this, EnumRenderStage.Ortho);
         }

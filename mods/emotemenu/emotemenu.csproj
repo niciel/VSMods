@@ -71,15 +71,9 @@
     <Content Include="modinfo.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\config\RadialMenuCFG.cs" />
     <Compile Include="src\EmoteMenuSystem.cs" />
-    <Compile Include="src\updater\api\ModAutoUpdate.cs" />
-    <Compile Include="src\updater\Class1.cs" />
-    <Compile Include="src\updater\UpdaterSystem.cs" />
     <Compile Include="src\QOLUtils.cs" />
-    <Compile Include="src\RadialItemMenu.cs" />
     <Compile Include="src\config\LangConfigFile.cs" />
-    <Compile Include="src\RadialMenuSystem.cs" />
     <Compile Include="src\config\EMConfig.cs" />
   </ItemGroup>
   <ItemGroup>

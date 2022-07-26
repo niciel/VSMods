@@ -228,6 +228,8 @@ namespace SimpleRM
                 return;
             this.BackGroundTexture.Dispose();
             this.BackGroundSelectedTexture.Dispose();
+            if (this.AutoDisposeIcon && this.Icon != null && !this.Icon.Disposed)
+                this.Icon.Dispose();
         }
 
         public int Gape

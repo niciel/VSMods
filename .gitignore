@@ -28,3 +28,5 @@ packages/
 obj/
 mods-dll/
 assets/
+/updater
+/kopie

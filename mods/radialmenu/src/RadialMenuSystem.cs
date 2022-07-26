@@ -1,22 +1,22 @@
-﻿using emotemenu.helper;
-using SimpleRM;
+﻿using SimpleRM;
 using System;
 using System.Collections.Generic;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
-
-namespace emotemenu
+using SimpleRM.debugS;
+namespace SimpleRM
 {
-    internal class RadialMenuSystem : ModSystem, IRenderer, IDisposable
+    public class RadialMenuSystem : ModSystem, IRenderer, IDisposable
     {
         private static readonly int ESC_KEYBOARD_ID = 50;
         private static readonly string CONFIG_FILE_NAME = "radialmenu.json";
+
+
 
         private ICoreClientAPI capi;
         private IGuiAPI guiApi;
         private RadialMenuCFG config;
         private RadialMenu CurrentlyOpened;
-
 
         private bool Keyboard;
         private int CurrnetKeyBind;
@@ -41,15 +41,10 @@ namespace emotemenu
             this.guiApi = api.Gui;
             this.ReloadConfig();
             this.HoldThreshold = (long)this.config.button_hold_milis;
-            // ISSUE: method pointer
             this.capi.Event.KeyDown += Event_KeyDown;
-            // ISSUE: method pointer
             this.capi.Event.KeyUp += Event_KeyUp;
-            // ISSUE: method pointer
             this.capi.Event.MouseDown += Event_MouseDown;
-            // ISSUE: method pointer
             this.capi.Event.MouseUp += Event_MouseUp;
-            // ISSUE: method pointer
             this.capi.Event.MouseMove += Event_MouseMove;
             this.capi.Event.RegisterRenderer((IRenderer)this, (EnumRenderStage)10, (string)null);
         }
@@ -92,7 +87,7 @@ namespace emotemenu
                     }
                     if (menuItem.BindID == bindId)
                     {
-                        capi.Logger.DebugMod( "cannot register menuItem: " + id + " keybind id conflict");
+                        capi.Logger.DebugMod("cannot register menuItem: " + id + " keybind id conflict");
                         return false;
                     }
                 }
@@ -240,7 +235,7 @@ namespace emotemenu
 
         private void Event_MouseUp(MouseEvent e)
         {
-            if (this.CurrentlyOpened == null || this.Keyboard || this.CurrnetKeyBind != (int) e.Button)
+            if (this.CurrentlyOpened == null || this.Keyboard || this.CurrnetKeyBind != (int)e.Button)
                 return;
             this.BindingUp();
         }
@@ -324,7 +319,7 @@ namespace emotemenu
         {
             foreach (RadialItemMenu mouseMenuItem in this.MouseBinding)
             {
-                if (mouseMenuItem.BindID == (int) emb)
+                if (mouseMenuItem.BindID == (int)emb)
                     return mouseMenuItem;
             }
             return (RadialItemMenu)null;
@@ -365,5 +360,9 @@ namespace emotemenu
         public double RenderOrder => 0.0;
 
         public int RenderRange => 0;
+
     }
+
+
+
 }

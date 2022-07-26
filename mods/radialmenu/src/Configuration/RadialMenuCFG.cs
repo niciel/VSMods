@@ -5,12 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-
-namespace emotemenu
+namespace SimpleRM
 {
-    public class RadialMenuCFG
+    class RadialMenuCFG
     {
-
         [JsonProperty]
         public float scale = 1f;
 

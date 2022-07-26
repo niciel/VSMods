@@ -70,11 +70,17 @@
     <Content Include="modinfo.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\Configuration\BasicConfiguration.cs" />
+    <Compile Include="src\DefaulInnerCircleRenderer.cs" />
+    <Compile Include="src\DebugSimplify.cs" />
+    <Compile Include="src\Configuration\RadialMenuCFG.cs" />
+    <Compile Include="src\RadialMenuSystem.cs" />
+    <Compile Include="src\RadialItemMenu.cs" />
     <Compile Include="src\RadialElementPosition.cs" />
     <Compile Include="src\InnerCircleRenderer.cs" />
     <Compile Include="src\IRadialElement.cs" />
-    <Compile Include="src\RadialMenuRenderer.cs" />
-    <Compile Include="src\RadialMenus.cs" />
+    <Compile Include="src\RadialMenu.cs" />
+    <Compile Include="src\RadialMenuGui.cs" />
     <Compile Include="src\utils\ResoultionAddon.cs" />
     <Compile Include="src\utils\Vectors.cs" />
   </ItemGroup>

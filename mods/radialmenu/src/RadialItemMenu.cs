@@ -1,9 +1,8 @@
-﻿using SimpleRM;
-using System;
+﻿using System;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 
-namespace emotemenu
+namespace SimpleRM
 {
     public class RadialItemMenu
     {
@@ -40,4 +39,3 @@ namespace emotemenu
         public string ID => this._ID;
     }
 }
-

@@ -63,7 +63,7 @@ namespace emotemenu
                 menu.AddElement((IRadialElement)this.BuildElement("facepalm", (Action)(() => dicr.DisplayedText = this.lang.emote_menu_facepalm)));
                 menu.AddElement((IRadialElement)this.BuildElement("bow", (Action)(() => dicr.DisplayedText = this.lang.emote_menu_bow)));
                 menu.AddElement((IRadialElement)this.BuildElement("laugh", (Action)(() => dicr.DisplayedText = this.lang.emote_menu_laugh)));
-                menu.AddElement((IRadialElement)this.BuildElement("rage", (Action)(() => dicr.DisplayedText = this.lang.emote_menu_rage)), true);
+                menu.AddElement((IRadialElement)this.BuildElement("rage", (Action)(() => dicr.DisplayedText = this.lang.emote_menu_rage)));
                 dicr = new DefaulInnerCircleRenderer(this.capi, 6);
                 dicr.Gape = (int)(8.0 * (double)scale);
                 menu.InnerRenderer = (InnerCircleRenderer) dicr;
@@ -78,8 +78,9 @@ namespace emotemenu
                 menu.AddElement((IRadialElement)this.BuildElement("facepalm", (Action)null));
                 menu.AddElement((IRadialElement)this.BuildElement("bow", (Action)null));
                 menu.AddElement((IRadialElement)this.BuildElement("laugh", (Action)null));
-                menu.AddElement((IRadialElement)this.BuildElement("rage", (Action)null), true);
+                menu.AddElement((IRadialElement)this.BuildElement("rage", (Action)null));
             }
+            menu.Rebuild();
             bool mouseBinding;
             int bindID;
             if (Enum.TryParse<EnumMouseButton>(this.config.button_mouse_binding, out EnumMouseButton result))
